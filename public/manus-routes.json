@@ -1,0 +1,15 @@
+{
+  "routes": [
+    { "path": "/", "title": "Accueil" },
+    { "path": "/shop", "title": "Boutique" },
+    { "path": "/produit/:id", "title": "Fiche produit" },
+    { "path": "/panier", "title": "Panier" },
+    { "path": "/favoris", "title": "Favoris" },
+    { "path": "/checkout", "title": "Checkout" },
+    { "path": "/connexion", "title": "Connexion" },
+    { "path": "/inscription", "title": "Inscription" },
+    { "path": "/compte", "title": "Compte" },
+    { "path": "/about", "title": "À propos" },
+    { "path": "/contact", "title": "Contact" }
+  ]
+}

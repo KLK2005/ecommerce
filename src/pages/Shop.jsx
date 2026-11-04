@@ -1,4 +1,8 @@
-import { useMemo, useState } from 'react';
+/* ShopCam — pages/Shop.jsx
+ * Rôle : Catalogue : lecture des paramètres URL, filtrage, tri et rendu des cartes produit.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
+import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import products from '../data/products.json';
 import Filters from '../components/Filters';
@@ -18,7 +22,8 @@ export default function Shop() {
   const [searchParams] = useSearchParams();
   const priceLimit = getPriceLimit(products);
   const initialUniverse = searchParams.get('universe') || '';
-  const [query, setQuery] = useState('');
+  const initialQuery = searchParams.get('search') || '';
+  const [query, setQuery] = useState(initialQuery);
   const [sort, setSort] = useState('newest');
   const [filters, setFilters] = useState({
     universe: initialUniverse,
@@ -26,6 +31,13 @@ export default function Shop() {
     color: '',
     minRating: 0,
   });
+
+  useEffect(() => {
+    const universe = searchParams.get('universe') || '';
+    const nextQuery = searchParams.get('search') || '';
+    setFilters((current) => current.universe === universe ? current : { ...current, universe });
+    setQuery((current) => current === nextQuery ? current : nextQuery);
+  }, [searchParams]);
 
   const colors = useMemo(() => (
     [...new Set(products.flatMap((product) => (product.colors || []).map((color) => color.name)))]

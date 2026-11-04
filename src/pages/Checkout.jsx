@@ -1,3 +1,7 @@
+/* ShopCam — pages/Checkout.jsx
+ * Rôle : Parcours de commande de démonstration : adresse, livraison, paiement et confirmation.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
@@ -128,7 +132,7 @@ export default function Checkout() {
                 >
                   <option value="douala">Douala</option>
                   <option value="yaounde">Yaoundé</option>
-                  <option value="autres">Autres[cite: 1]</option>
+                  <option value="autres">Autres</option>
                 </select>
               </div>
               <div>
@@ -157,7 +161,7 @@ export default function Checkout() {
           </div>
 
           <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 className="mb-4 text-xl font-bold text-gray-900">2. Mode de paiement[cite: 1]</h2>
+            <h2 className="mb-4 text-xl font-bold text-gray-900">2. Mode de paiement</h2>
             <div className="space-y-3">
               <label className="flex items-center space-x-3 cursor-pointer">
                 <input
@@ -168,7 +172,7 @@ export default function Checkout() {
                   onChange={(e) => setPaymentMethod(e.target.value)}
                   className="h-4 w-4 text-blue-600"
                 />
-                <span>MTN Mobile Money (Fictif : +237 657 123 456)[cite: 1]</span>
+                <span>MTN Mobile Money (Fictif : +237 657 123 456)</span>
               </label>
               <label className="flex items-center space-x-3 cursor-pointer">
                 <input
@@ -179,7 +183,7 @@ export default function Checkout() {
                   onChange={(e) => setPaymentMethod(e.target.value)}
                   className="h-4 w-4 text-blue-600"
                 />
-                <span>Orange Money (Fictif : +237 675 123 456)[cite: 1]</span>
+                <span>Orange Money (Fictif : +237 675 123 456)</span>
               </label>
               <label className="flex items-center space-x-3 cursor-pointer">
                 <input
@@ -190,7 +194,7 @@ export default function Checkout() {
                   onChange={(e) => setPaymentMethod(e.target.value)}
                   className="h-4 w-4 text-blue-600"
                 />
-                <span>Paiement à la livraison (COD)[cite: 1]</span>
+                <span>Paiement à la livraison (COD)</span>
               </label>
             </div>
           </div>
@@ -221,12 +225,12 @@ export default function Checkout() {
         </div>
       </form>
 
-      <Modal open={isModalOpen} onClose={() => navigate('/')} title="Commande validée ![cite: 1]">
+      <Modal open={isModalOpen} onClose={() => navigate('/')} title="Commande validée !">
         {confirmedOrder && (
           <div className="space-y-4">
-            <p className="text-gray-600">Votre commande a été enregistrée avec succès[cite: 1].</p>
+            <p className="text-gray-600">Votre commande a été enregistrée avec succès.</p>
             <div className="rounded-lg bg-gray-50 p-4 text-sm space-y-2">
-              <p><strong>N° Commande :</strong> {confirmedOrder.id}[cite: 1]</p>
+              <p><strong>N° Commande :</strong> {confirmedOrder.id}</p>
               <p><strong>Montant :</strong> {formatFCFA(confirmedOrder.total)}</p>
               <p><strong>Paiement :</strong> {confirmedOrder.paymentMethod}</p>
             </div>
@@ -234,7 +238,7 @@ export default function Checkout() {
               onClick={() => navigate('/')}
               className="w-full rounded-lg bg-blue-600 py-2.5 text-center font-medium text-white hover:bg-blue-700"
             >
-              Retour accueil[cite: 1]
+              Retour accueil
             </button>
           </div>
         )}

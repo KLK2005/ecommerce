@@ -1,3 +1,7 @@
+/* ShopCam — components/ProduitsSimilaires.jsx
+ * Rôle : Sélection de produits du même univers affichée sous une fiche produit.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
 import { Link } from "react-router-dom";
 import products from "../data/products.json";
 

@@ -1,3 +1,7 @@
+/* ShopCam — utils/format.js
+ * Rôle : Fonctions de présentation des prix FCFA, téléphones et dates.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
 export const formatFCFA = (price) => {
   if (!price) return "0 FCFA";
   return new Intl.NumberFormat("fr-FR").format(price) + " FCFA";

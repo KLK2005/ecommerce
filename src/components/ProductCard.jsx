@@ -1,3 +1,7 @@
+/* ShopCam — components/ProductCard.jsx
+ * Rôle : Carte produit réutilisable : image, note, prix, favoris et ajout rapide au panier.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';

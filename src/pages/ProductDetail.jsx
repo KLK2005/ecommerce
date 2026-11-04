@@ -1,9 +1,14 @@
+/* ShopCam — pages/ProductDetail.jsx
+ * Rôle : Fiche produit : galerie, variantes, tailles, caractéristiques, avis et panier.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
 import ProduitsSimilaires from "../components/ProduitsSimilaires";
 import Avis from "../components/Avis";
 import { useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import products from "../data/products.json";
 import { useCart } from "../context/CartContext";
+import { useWishlist } from "../context/WishlistContext";
 
 // Tableau des tailles (on affiche seulement les tailles du produit)
 const TABLEAU_TAILLES = [
@@ -18,16 +23,18 @@ const TABLEAU_TAILLES = [
 export default function ProductDetail() {
   const { id } = useParams();
   const { addToCart } = useCart();
+  const { toggleWishlist, isWishlisted } = useWishlist();
 
   const [imageIndex, setImageIndex] = useState(0);
   const [couleur, setCouleur] = useState(null);
   const [taille, setTaille] = useState(null);
-  const [favori, setFavori] = useState(false);
+  const [imageFailed, setImageFailed] = useState(false);
   const [erreur, setErreur] = useState("");
   useEffect(() => {
   setImageIndex(0);
   setCouleur(null);
   setTaille(null);
+  setImageFailed(false);
   setErreur("");
   window.scrollTo(0, 0);
 }, [id]);
@@ -46,7 +53,7 @@ export default function ProductDetail() {
       return;
     }
     setErreur("");
-    addToCart(produit, { taille, couleur: couleur?.name });
+    addToCart(produit, { size: taille, color: couleur?.name });
   }
 
   return (
@@ -54,11 +61,19 @@ export default function ProductDetail() {
       {/* ----- PARTIE GAUCHE : galerie ----- */}
       <div>
         <div className="overflow-hidden rounded-xl bg-gray-100">
-          <img
-            src={imagePrincipale}
-            alt={produit.name}
-            className="w-full h-96 object-cover transition-transform duration-300 hover:scale-150 cursor-zoom-in"
-          />
+          {imageFailed ? (
+            <div className="flex h-96 flex-col items-center justify-center gap-4 bg-gray-100 p-6 text-center">
+              <img src="/img/placeholder.svg" alt="" className="h-40 w-40 object-contain" />
+              <span className="font-medium text-gray-600">{produit.name}</span>
+            </div>
+          ) : (
+            <img
+              src={imagePrincipale || "/img/placeholder.svg"}
+              alt={produit.name}
+              onError={() => setImageFailed(true)}
+              className="w-full h-96 object-cover transition-transform duration-300 hover:scale-150 cursor-zoom-in"
+            />
+          )}
         </div>
         <div className="flex gap-3 mt-3">
           {produit.images.map((img, i) => (
@@ -66,6 +81,7 @@ export default function ProductDetail() {
               key={i}
               src={img}
               alt=""
+              onError={(event) => { event.currentTarget.src = "/img/placeholder.svg"; }}
               onClick={() => {
                 setCouleur(null);
                 setImageIndex(i);
@@ -187,10 +203,10 @@ export default function ProductDetail() {
             Ajouter au panier
           </button>
           <button
-            onClick={() => setFavori(!favori)}
+            onClick={() => toggleWishlist(produit.id)}
             className="px-5 border rounded-lg text-2xl"
           >
-            {favori ? "❤️" : "🤍"}
+            {isWishlisted(produit.id) ? "❤️" : "🤍"}
           </button>
         </div>
       </div>

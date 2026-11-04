@@ -1,3 +1,7 @@
+/* ShopCam — utils/orders.js
+ * Rôle : Utilitaires de livraison et de stockage local des commandes de démonstration.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
 const KEY = 'orders';
 
 const DELIVERY_RATES = {

@@ -1,3 +1,7 @@
+/* ShopCam — components/SearchBar.jsx
+ * Rôle : Champ de recherche contrôlé utilisé dans le catalogue.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
 export default function SearchBar({ value, onChange }) {
   return (
     <label className="block" htmlFor="catalogue-search">

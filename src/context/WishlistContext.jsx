@@ -1,3 +1,7 @@
+/* ShopCam — context/WishlistContext.jsx
+ * Rôle : État global des favoris avec restauration et sauvegarde dans localStorage.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const WishlistContext = createContext();

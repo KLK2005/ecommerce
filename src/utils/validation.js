@@ -1,3 +1,7 @@
+/* ShopCam — utils/validation.js
+ * Rôle : Règles de validation partagées pour téléphone camerounais, email, identifiant et mot de passe.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
 export const normalizePhone = (value) =>
   value.replace(/[\s.-]/g, '').replace(/^\+?237/, '');
 

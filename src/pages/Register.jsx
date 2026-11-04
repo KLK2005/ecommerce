@@ -1,3 +1,7 @@
+/* ShopCam — pages/Register.jsx
+ * Rôle : Formulaire d’inscription connecté à AuthContext avec validation et redirection.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
@@ -15,7 +19,7 @@ export default function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!isValidPassword(password)) {
-      showToast('Le mot de passe doit contenir au moins 6 caractères[cite: 1].', 'error');
+      showToast('Le mot de passe doit contenir au moins 6 caractères.', 'error');
       return;
     }
 
@@ -24,7 +28,7 @@ export default function Register() {
       showToast('Compte créé avec succès !', 'success');
       navigate('/compte');
     } else {
-      showToast(result.message || 'Cet identifiant existe déjà[cite: 1].', 'error');
+      showToast(result.message || 'Cet identifiant existe déjà.', 'error');
     }
   };
 
@@ -44,7 +48,7 @@ export default function Register() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Identifiant (Téléphone ou Email)[cite: 1]</label>
+            <label className="block text-sm font-medium text-gray-700">Identifiant (Téléphone ou Email)</label>
             <input
               type="text"
               required
@@ -54,7 +58,7 @@ export default function Register() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Mot de passe (min. 6 caractères)[cite: 1]</label>
+            <label className="block text-sm font-medium text-gray-700">Mot de passe (min. 6 caractères)</label>
             <input
               type="password"
               required

@@ -1,3 +1,7 @@
+/* ShopCam — pages/Account.jsx
+ * Rôle : Espace client protégé affichant le profil et l’historique des commandes.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
 import { useAuth } from '../context/AuthContext';
 import { getOrders } from '../utils/orders';
 import { formatFCFA } from '../utils/format';
@@ -38,11 +42,11 @@ export default function Account() {
           }}
           className="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700"
         >
-          Déconnexion[cite: 1]
+          Déconnexion
         </button>
       </div>
 
-      <h2 className="mb-4 text-2xl font-bold text-gray-900">Historique des commandes[cite: 1]</h2>
+      <h2 className="mb-4 text-2xl font-bold text-gray-900">Historique des commandes</h2>
       {userOrders.length === 0 ? (
         <p className="text-gray-600">Aucune commande enregistrée pour le moment.</p>
       ) : (

@@ -1,3 +1,7 @@
+/* ShopCam — pages/Cart.jsx
+ * Rôle : Page panier : lignes, quantités, suppression, sous-total et accès au checkout.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { formatFCFA } from '../utils/format';
@@ -32,8 +36,10 @@ export default function Cart() {
               className="flex flex-col sm:flex-row items-center justify-between rounded-xl border border-gray-200 bg-white p-4 shadow-sm gap-4"
             >
               <img
-                src={item.image || item.images?.[0] || '/img/placeholder.jpg'}
+                src={item.image || item.images?.[0] || '/img/placeholder.svg'}
                 alt={item.name}
+                loading="lazy"
+                decoding="async"
                 className="h-20 w-20 object-cover rounded-lg"
               />
               <div className="flex-1 text-center sm:text-left">

@@ -1,3 +1,7 @@
+/* ShopCam — pages/Login.jsx
+ * Rôle : Formulaire de connexion connecté à AuthContext, validation et redirection.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
@@ -12,12 +16,12 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const success = login(identifiant, password);
-    if (success) {
+    const result = login(identifiant, password);
+    if (result.success) {
       showToast('Connexion réussie !', 'success');
       navigate('/compte');
     } else {
-      showToast('Identifiant ou mot de passe incorrect[cite: 1].', 'error');
+      showToast('Identifiant ou mot de passe incorrect.', 'error');
     }
   };
 
@@ -27,7 +31,7 @@ export default function Login() {
         <h1 className="mb-6 text-2xl font-bold text-gray-900 text-center">Connexion</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Identifiant (Téléphone ou Email)[cite: 1]</label>
+            <label className="block text-sm font-medium text-gray-700">Identifiant (Téléphone ou Email)</label>
             <input
               type="text"
               required

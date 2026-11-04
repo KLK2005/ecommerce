@@ -1,48 +1,74 @@
+/* ShopCam — components/Header.jsx
+ * Rôle : En-tête sticky partagé : logo, navigation principale, favoris, compte et panier.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 import { useAuth } from '../context/AuthContext';
 
+function Icon({ name }) {
+  const paths = {
+    heart: 'M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z',
+    user: 'M20 21a8 8 0 0 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z',
+    bag: 'M5 8h14l-1 13H6L5 8Zm3 0a4 4 0 0 1 8 0',
+  };
+
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+      <path d={paths[name]} />
+    </svg>
+  );
+}
+
 export default function Header() {
   const { cartCount } = useCart();
   const { wishlistCount } = useWishlist();
   const { isAuthenticated } = useAuth();
+  const iconLink = 'relative inline-flex h-11 w-11 items-center justify-center rounded-xl text-slate-800 transition hover:bg-blue-50 hover:text-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800';
+  const navLink = 'inline-flex min-h-11 items-center font-medium text-slate-800 transition hover:text-blue-800 focus-visible:rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800';
 
   return (
-    <header className="bg-white shadow sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center gap-4">
-        <Link to="/" className="text-2xl font-bold text-blue-600 whitespace-nowrap">
-          ShopCam
+    <header className="sticky top-0 z-50 bg-white shadow-sm">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3">
+        <Link to="/" className="flex items-center gap-2.5 whitespace-nowrap rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-800" aria-label="ShopCam, accueil">
+          <img src="/logo-shopcam.svg" alt="" className="h-10 w-10" />
+          <span className="text-2xl font-black tracking-tight text-blue-800">Shop<span className="text-amber-700">Cam</span></span>
         </Link>
 
-        <nav className="hidden md:flex gap-6 flex-1 justify-center">
-          <Link to="/shop?universe=mode" className="hover:text-blue-600 font-medium transition">Mode</Link>
-          <Link to="/shop?universe=maison" className="hover:text-blue-600 font-medium transition">Maison</Link>
-          <Link to="/shop?universe=tech" className="hover:text-blue-600 font-medium transition">Tech</Link>
-          <Link to="/shop?universe=beaute" className="hover:text-blue-600 font-medium transition">Beauté</Link>
+        <nav aria-label="Navigation principale" className="order-3 flex w-full flex-wrap items-center justify-start gap-x-4 gap-y-1 border-t border-gray-100 pt-2 text-sm md:order-none md:w-auto md:flex-1 md:justify-center md:gap-5 md:border-0 md:pt-0 md:text-base">
+          <Link to="/shop" className={navLink}>Boutique</Link>
+          <Link to="/shop?universe=tech" className={navLink}>Tech</Link>
+          <Link to="/shop?universe=maison" className={navLink}>Maison</Link>
+          <Link to="/shop?universe=beaute" className={navLink}>Beauté</Link>
+          <Link to="/shop?universe=mode" className={navLink}>Mode</Link>
         </nav>
 
-        <div className="flex gap-4 items-center">
-          <Link to="/favoris" className="relative text-2xl hover:text-red-600 transition">
-            ❤️
-            {wishlistCount > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
-                {wishlistCount}
-              </span>
-            )}
+        <div className="flex items-center gap-1 sm:gap-2" role="group" aria-label="Raccourcis du compte et du panier">
+          <Link
+            to="/favoris"
+            aria-label={wishlistCount ? `Favoris, ${wishlistCount} article${wishlistCount > 1 ? 's' : ''}` : 'Favoris'}
+            className={iconLink}
+          >
+            <Icon name="heart" />
+            {wishlistCount > 0 && <span aria-hidden="true" className="absolute right-0.5 top-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-red-700 px-1 text-xs font-bold text-white">{wishlistCount}</span>}
           </Link>
 
-          <Link to={isAuthenticated ? "/compte" : "/connexion"} className="text-2xl hover:text-blue-600 transition">
-            👤
+          <Link
+            to={isAuthenticated ? '/compte' : '/connexion'}
+            aria-label={isAuthenticated ? 'Mon compte' : 'Se connecter'}
+            className={iconLink}
+          >
+            <Icon name="user" />
           </Link>
 
-          <Link to="/panier" className="relative text-2xl hover:text-blue-600 transition">
-            🛒
-            {cartCount > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
-                {cartCount}
-              </span>
-            )}
+          <Link
+            to="/panier"
+            aria-label={cartCount ? `Panier, ${cartCount} article${cartCount > 1 ? 's' : ''}` : 'Panier'}
+            className={iconLink}
+          >
+            <Icon name="bag" />
+            {cartCount > 0 && <span aria-hidden="true" className="absolute right-0.5 top-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-red-700 px-1 text-xs font-bold text-white">{cartCount}</span>}
           </Link>
         </div>
       </div>

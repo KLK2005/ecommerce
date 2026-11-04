@@ -1,3 +1,7 @@
+/* ShopCam — components/Modal.jsx
+ * Rôle : Fenêtre modale accessible avec gestion du focus, fermeture clavier et restauration du focus.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
 import { useEffect, useRef } from 'react';
 
 export default function Modal({ open, onClose, title, children }) {

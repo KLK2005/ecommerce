@@ -1,3 +1,7 @@
+/* ShopCam — components/Filters.jsx
+ * Rôle : Panneau de filtres du catalogue : univers, prix, couleur et note minimale.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
 const UNIVERSES = [
   { value: 'mode', label: 'Mode' },
   { value: 'maison', label: 'Maison' },

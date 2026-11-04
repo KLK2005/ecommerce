@@ -1,3 +1,7 @@
+/* ShopCam — components/Avis.jsx
+ * Rôle : Composant d’affichage des avis de démonstration associés à une fiche produit.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
 // Quelques avis d'exemple (données fixes pour la démonstration)
 const AVIS = [
   {
@@ -6,7 +10,6 @@ const AVIS = [
     note: 5,
     date: "28 oct. 2026",
     texte: "Très belle qualité, livraison rapide à Douala !",
-    photo: "/img/avis-1.jpg",
   },
   {
     id: 2,
@@ -14,7 +17,6 @@ const AVIS = [
     note: 4,
     date: "25 oct. 2026",
     texte: "Conforme à la photo, je recommande.",
-    photo: "/img/avis-2.jpg",
   },
   {
     id: 3,
@@ -22,7 +24,6 @@ const AVIS = [
     note: 5,
     date: "20 oct. 2026",
     texte: "Rapport qualité-prix excellent, je rachèterai.",
-    photo: null,
   },
 ];
 
@@ -54,15 +55,6 @@ export default function Avis({ rating, total }) {
             <Etoiles note={a.note} />
             <p className="mt-2 text-gray-700">{a.texte}</p>
 
-            {/* La photo s'affiche seulement si l'avis en a une */}
-            {a.photo && (
-              <img
-                src={a.photo}
-                alt="Photo du client"
-                onError={(e) => (e.target.style.display = "none")}
-                className="mt-3 w-24 h-24 object-cover rounded-lg"
-              />
-            )}
           </div>
         ))}
       </div>

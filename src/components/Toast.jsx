@@ -1,3 +1,7 @@
+/* ShopCam — components/Toast.jsx
+ * Rôle : Contexte et rendu des notifications temporaires de succès ou d’erreur.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
 import { createContext, useCallback, useContext, useRef, useState } from 'react';
 
 const ToastContext = createContext(null);

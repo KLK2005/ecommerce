@@ -1,3 +1,7 @@
+/* ShopCam — pages/Wishlist.jsx
+ * Rôle : Page des favoris avec rendu des produits sauvegardés et état vide.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ */
 import { useWishlist } from '../context/WishlistContext';
 import ProductCard from '../components/ProductCard';
 import productsData from '../data/products.json';
