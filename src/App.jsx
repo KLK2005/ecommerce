@@ -1,3 +1,4 @@
+import ProductDetail from "./pages/ProductDetail";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import { WishlistProvider } from './context/WishlistContext';
@@ -17,6 +18,7 @@ function App() {
               
               <main className="flex-1 max-w-7xl w-full mx-auto px-4">
                 <Routes>
+                  <Route path="/produit/:id" element={<ProductDetail />} />
                   <Route path="/" element={<Home />} />
                   <Route path="/shop" element={<div className="py-4">Shop</div>} />
                   <Route path="/produit/:id" element={<div className="py-4">ProductDetail</div>} />
