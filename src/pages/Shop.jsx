@@ -70,14 +70,14 @@ export default function Shop() {
   };
 
   return (
-    <section className="py-8 md:py-10">
-      <div className="mb-8">
-        <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-blue-600">ShopCam</p>
-        <h1 className="text-3xl font-bold text-gray-900 md:text-4xl">La boutique</h1>
-        <p className="mt-2 text-gray-600">Trouvez vos produits préférés au meilleur prix.</p>
+    <section className="py-6 sm:py-8 md:py-10">
+      <div className="mb-6 sm:mb-8">
+        <p className="mb-2 text-xs sm:text-sm font-semibold uppercase tracking-wide text-blue-600">ShopCam</p>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">La boutique</h1>
+        <p className="mt-2 text-sm sm:text-base text-gray-600">Trouvez vos produits préférés au meilleur prix.</p>
       </div>
 
-      <div className="mb-6">
+      <div className="mb-5 sm:mb-6">
         <SearchBar value={query} onChange={setQuery} />
       </div>
 
@@ -91,17 +91,17 @@ export default function Shop() {
         />
 
         <div>
-          <div className="mb-5 flex flex-col gap-3 border-b border-gray-200 pb-4 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm text-gray-600">
+          <div className="mb-5 flex flex-col gap-2 sm:gap-3 border-b border-gray-200 pb-3 sm:pb-4 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-xs sm:text-sm text-gray-600">
               <span className="font-bold text-gray-900">{visibleProducts.length}</span> produit{visibleProducts.length > 1 ? 's' : ''}
             </p>
-            <label className="flex items-center gap-2 text-sm text-gray-600" htmlFor="catalogue-sort">
+            <label className="flex items-center gap-2 text-xs sm:text-sm text-gray-600" htmlFor="catalogue-sort">
               <span className="whitespace-nowrap">Trier par</span>
               <select
                 id="catalogue-sort"
                 value={sort}
                 onChange={(event) => setSort(event.target.value)}
-                className="rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-700 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
+                className="rounded-lg border border-gray-200 bg-white px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-gray-700 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
               >
                 {SORT_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
               </select>
@@ -109,17 +109,17 @@ export default function Shop() {
           </div>
 
           {visibleProducts.length > 0 ? (
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-3 lg:grid-cols-4">
               {visibleProducts.map((product) => <ProductCard key={product.id} product={product} />)}
             </div>
           ) : (
-            <div className="rounded-xl border border-dashed border-gray-300 bg-white px-6 py-16 text-center">
-              <h2 className="text-xl font-bold text-gray-900">Aucun résultat</h2>
-              <p className="mt-2 text-gray-600">Essayez de modifier votre recherche ou vos filtres.</p>
+            <div className="rounded-xl border border-dashed border-gray-300 bg-white px-4 sm:px-6 py-12 sm:py-16 text-center">
+              <h2 className="text-lg sm:text-xl font-bold text-gray-900">Aucun résultat</h2>
+              <p className="mt-2 text-sm sm:text-base text-gray-600">Essayez de modifier votre recherche ou vos filtres.</p>
               <button
                 type="button"
                 onClick={resetAll}
-                className="mt-5 rounded-lg bg-blue-600 px-5 py-2.5 font-semibold text-white transition hover:bg-blue-700"
+                className="mt-4 sm:mt-5 rounded-lg bg-blue-600 px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base font-semibold text-white transition hover:bg-blue-700"
               >
                 Réinitialiser les filtres
               </button>

@@ -1,6 +1,6 @@
 /* ShopCam — pages/Home.jsx
  * Rôle : Landing page : hero, recherche, univers, produits mis en avant et appel au contact.
- * Les données et actions restent locales dans ce prototype ; aucune requête serveur n’est déclenchée ici.
+ * Les données et actions restent locales dans ce prototype ; aucune requête serveur n'est déclenchée ici.
  */
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
@@ -71,16 +71,16 @@ export default function Home() {
       <section aria-labelledby="home-title" className="relative isolate overflow-hidden rounded-b-[2rem] bg-white text-slate-950">
         <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-40 h-[34rem] w-[34rem] rounded-full bg-blue-100/70 blur-3xl" />
         <div aria-hidden="true" className="pointer-events-none absolute -bottom-48 left-1/4 h-96 w-96 rounded-full bg-amber-100/70 blur-3xl" />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-5 py-14 sm:px-8 sm:py-20 lg:grid-cols-[1.02fr_.98fr] lg:gap-14 lg:px-10 lg:py-24">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-6 sm:gap-8 px-4 sm:px-6 md:px-8 lg:px-10 py-10 sm:py-14 md:py-20 lg:grid-cols-[1.02fr_.98fr] lg:gap-14 lg:py-24">
           <div className="max-w-2xl">
             <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-950">
               <span aria-hidden="true" className="h-2 w-2 rounded-full bg-amber-600" />
               Une boutique pour tout le quotidien
             </p>
-            <h1 id="home-title" className="max-w-xl text-4xl font-black leading-[1.08] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
-              Tout ce qu’il vous faut, <span className="text-amber-800">au même endroit.</span>
+            <h1 id="home-title" className="max-w-xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-[1.08] tracking-tight text-slate-950">
+              Tout ce qu'il vous faut, <span className="text-amber-800">au même endroit.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-700 sm:text-xl">
+            <p className="mt-4 sm:mt-6 max-w-xl text-base sm:text-lg md:text-xl leading-7 sm:leading-8 text-slate-700">
               Électronique, maison, beauté, mode et essentiels du quotidien : trouvez vos produits à des prix en FCFA, avec une livraison pensée pour le Cameroun.
             </p>
             <form role="search" onSubmit={handleSearch} className="mt-7 flex max-w-xl flex-col gap-2 rounded-2xl border border-slate-200 bg-white p-2 shadow-sm sm:flex-row">
@@ -137,7 +137,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section aria-label="Les avantages ShopCam" className="mx-auto grid max-w-7xl gap-3 px-5 py-8 sm:grid-cols-3 sm:px-8 lg:px-10">
+      <section aria-label="Les avantages ShopCam" className="mx-auto grid max-w-7xl gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 lg:px-10 py-6 sm:py-8 md:grid-cols-3">
         <article className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
           <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-800" aria-hidden="true"><CheckIcon /></span>
           <div><h2 className="font-bold text-slate-900">Prix en FCFA</h2><p className="mt-0.5 text-sm text-slate-700">Clairs dès le départ.</p></div>
@@ -152,18 +152,18 @@ export default function Home() {
         </article>
       </section>
 
-      <section aria-labelledby="categories-title" className="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16 lg:px-10">
-        <div className="mb-7 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+      <section aria-labelledby="categories-title" className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-12 md:py-16">
+        <div className="mb-5 sm:mb-7 flex flex-col gap-2 sm:gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.15em] text-blue-800">À vous de choisir</p>
-            <h2 id="categories-title" className="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Explorez les univers</h2>
+            <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.15em] text-blue-800">À vous de choisir</p>
+            <h2 id="categories-title" className="mt-1.5 sm:mt-2 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-slate-950">Explorez les univers</h2>
           </div>
-          <Link to="/shop" className="inline-flex min-h-11 items-center font-semibold text-blue-800 underline decoration-blue-300 decoration-2 underline-offset-4 hover:text-blue-950 focus-visible:rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-800">
+          <Link to="/shop" className="inline-flex min-h-11 items-center text-sm sm:text-base font-semibold text-blue-800 underline decoration-blue-300 decoration-2 underline-offset-4 hover:text-blue-950 focus-visible:rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-800">
             Voir tous les produits <span aria-hidden="true" className="ml-2">→</span>
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-2 sm:gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((category) => (
             <Link
               key={category.slug}
@@ -173,43 +173,43 @@ export default function Home() {
               <div className="overflow-hidden bg-white/60">
                 <img src={category.image} alt={category.alt} loading="lazy" decoding="async" className="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-[1.03] motion-reduce:transform-none" />
               </div>
-              <div className="flex items-end justify-between gap-3 p-5">
-                <div><h3 className="text-xl font-extrabold text-slate-950">{category.name}</h3><p className="mt-1 text-sm text-slate-700">{category.description}</p></div>
-                <span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-lg font-bold text-blue-900 shadow-sm transition group-hover:bg-blue-800 group-hover:text-white">→</span>
+              <div className="flex items-end justify-between gap-2 sm:gap-3 p-3 sm:p-5">
+                <div><h3 className="text-lg sm:text-xl font-extrabold text-slate-950">{category.name}</h3><p className="mt-0.5 sm:mt-1 text-xs sm:text-sm text-slate-700">{category.description}</p></div>
+                <span aria-hidden="true" className="flex h-8 sm:h-10 w-8 sm:w-10 shrink-0 items-center justify-center rounded-full bg-white text-base sm:text-lg font-bold text-blue-900 shadow-sm transition group-hover:bg-blue-800 group-hover:text-white">→</span>
               </div>
             </Link>
           ))}
           <Link to="/shop?universe=beaute" className="group relative flex min-h-60 flex-col justify-between overflow-hidden rounded-2xl border border-amber-200 bg-gradient-to-br from-amber-50 via-orange-50 to-rose-100 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-800 motion-reduce:transform-none sm:col-span-2 lg:col-span-1">
             <div className="absolute -right-8 -top-8 h-36 w-36 rounded-full border-[22px] border-white/50" aria-hidden="true" />
             <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-amber-900 shadow-sm" aria-hidden="true"><SparkleIcon /></span>
-            <div className="relative mt-10 flex items-end justify-between gap-3">
-              <div><h3 className="text-xl font-extrabold text-slate-950">Beauté</h3><p className="mt-1 text-sm text-slate-700">Des essentiels tout en douceur.</p></div>
-              <span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-lg font-bold text-blue-900 shadow-sm transition group-hover:bg-blue-800 group-hover:text-white">→</span>
+            <div className="relative mt-6 sm:mt-10 flex items-end justify-between gap-2 sm:gap-3">
+              <div><h3 className="text-lg sm:text-xl font-extrabold text-slate-950">Beauté</h3><p className="mt-0.5 sm:mt-1 text-xs sm:text-sm text-slate-700">Des essentiels tout en douceur.</p></div>
+              <span aria-hidden="true" className="flex h-8 sm:h-10 w-8 sm:w-10 shrink-0 items-center justify-center rounded-full bg-white text-base sm:text-lg font-bold text-blue-900 shadow-sm transition group-hover:bg-blue-800 group-hover:text-white">→</span>
             </div>
           </Link>
         </div>
       </section>
 
       <section aria-labelledby="featured-title" className="bg-slate-100/80">
-        <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16 lg:px-10">
-          <div className="mb-7 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-12 md:py-16">
+          <div className="mb-5 sm:mb-7 flex flex-col gap-2 sm:gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.15em] text-blue-800">Quelques idées pour commencer</p>
-              <h2 id="featured-title" className="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">À découvrir cette semaine</h2>
+              <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.15em] text-blue-800">Quelques idées pour commencer</p>
+              <h2 id="featured-title" className="mt-1.5 sm:mt-2 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-slate-950">À découvrir cette semaine</h2>
             </div>
-            <Link to="/shop" className="inline-flex min-h-11 items-center font-semibold text-blue-800 underline decoration-blue-300 decoration-2 underline-offset-4 hover:text-blue-950 focus-visible:rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-800">
+            <Link to="/shop" className="inline-flex min-h-11 items-center text-sm sm:text-base font-semibold text-blue-800 underline decoration-blue-300 decoration-2 underline-offset-4 hover:text-blue-950 focus-visible:rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-800">
               Parcourir la boutique <span aria-hidden="true" className="ml-2">→</span>
             </Link>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-2 sm:gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {featuredProducts.map((product) => (
               <article key={product.id} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md">
                 <Link to={`/produit/${product.id}`} className="group block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-blue-800">
                   <img src={product.image} alt={product.alt} loading="lazy" decoding="async" className="aspect-[16/10] w-full object-cover transition duration-300 group-hover:scale-[1.02] motion-reduce:transform-none" />
-                  <div className="flex items-center justify-between gap-4 p-5">
-                    <div><h3 className="font-bold text-slate-950 group-hover:text-blue-800">{product.name}</h3><p className="mt-1 text-sm font-semibold text-slate-700">{formatFCFA(product.price)}</p></div>
-                    <span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-50 text-lg font-bold text-blue-900">→</span>
+                  <div className="flex items-center justify-between gap-2 sm:gap-4 p-3 sm:p-5">
+                    <div><h3 className="text-sm sm:text-base font-bold text-slate-950 group-hover:text-blue-800">{product.name}</h3><p className="mt-0.5 sm:mt-1 text-xs sm:text-sm font-semibold text-slate-700">{formatFCFA(product.price)}</p></div>
+                    <span aria-hidden="true" className="flex h-8 sm:h-10 w-8 sm:w-10 shrink-0 items-center justify-center rounded-full bg-blue-50 text-base sm:text-lg font-bold text-blue-900">→</span>
                   </div>
                 </Link>
               </article>
@@ -218,14 +218,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section aria-labelledby="contact-cta-title" className="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16 lg:px-10">
-        <div className="flex flex-col items-start justify-between gap-6 rounded-3xl bg-blue-900 px-6 py-8 text-white sm:px-10 sm:py-10 lg:flex-row lg:items-center">
+      <section aria-labelledby="contact-cta-title" className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-12 md:py-16">
+        <div className="flex flex-col items-start justify-between gap-4 sm:gap-6 rounded-2xl sm:rounded-3xl bg-blue-900 px-4 sm:px-6 md:px-10 py-6 sm:py-8 md:py-10 text-white lg:flex-row lg:items-center">
           <div className="max-w-2xl">
-            <p className="text-sm font-bold uppercase tracking-[0.15em] text-blue-200">Besoin d’un renseignement ?</p>
-            <h2 id="contact-cta-title" className="mt-2 text-2xl font-black sm:text-3xl">On vous accompagne dans votre choix.</h2>
-            <p className="mt-2 leading-7 text-blue-100">Consultez les produits ou contactez notre équipe si vous avez une question.</p>
+            <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.15em] text-blue-200">Besoin d'un renseignement ?</p>
+            <h2 id="contact-cta-title" className="mt-1.5 sm:mt-2 text-xl sm:text-2xl md:text-3xl font-black">On vous accompagne dans votre choix.</h2>
+            <p className="mt-1.5 sm:mt-2 leading-6 sm:leading-7 text-sm sm:text-base text-blue-100">Consultez les produits ou contactez notre équipe si vous avez une question.</p>
           </div>
-          <Link to="/contact" className="inline-flex min-h-12 shrink-0 items-center justify-center rounded-xl bg-white px-6 py-3 font-bold text-blue-950 transition hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+          <Link to="/contact" className="inline-flex min-h-11 sm:min-h-12 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-bold text-blue-950 transition hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
             Nous contacter <span aria-hidden="true" className="ml-2">→</span>
           </Link>
         </div>

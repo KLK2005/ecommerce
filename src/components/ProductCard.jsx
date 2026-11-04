@@ -60,7 +60,7 @@ export default function ProductCard({ product }) {
           </div>
         )}
         {product.discount > 0 && (
-          <span className="absolute left-3 top-3 rounded-full bg-red-500 px-2.5 py-1 text-xs font-bold text-white">
+          <span className="absolute left-2 sm:left-3 top-2 sm:top-3 rounded-full bg-red-500 px-2 sm:px-2.5 py-0.5 sm:py-1 text-xs font-bold text-white">
             -{product.discount}%
           </span>
         )}
@@ -68,15 +68,15 @@ export default function ProductCard({ product }) {
           type="button"
           onClick={() => toggleWishlist(product.id)}
           aria-label={isWishlisted(product.id) ? 'Retirer des favoris' : 'Ajouter aux favoris'}
-          className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/95 text-lg shadow transition hover:scale-105"
+          className="absolute right-2 sm:right-3 top-2 sm:top-3 flex h-8 sm:h-9 w-8 sm:w-9 items-center justify-center rounded-full bg-white/95 text-lg sm:text-lg shadow transition hover:scale-105"
         >
           <span className={isWishlisted(product.id) ? 'text-red-500' : 'text-gray-400'}>♥</span>
         </button>
       </div>
 
-      <div className="p-4">
+      <div className="p-3 sm:p-4">
         <Link to={`/produit/${product.id}`} className="block">
-          <h3 className="line-clamp-2 min-h-[3rem] font-semibold text-gray-900 transition hover:text-blue-600">
+          <h3 className="line-clamp-2 min-h-[3rem] text-sm sm:text-base font-semibold text-gray-900 transition hover:text-blue-600">
             {product.name}
           </h3>
         </Link>
@@ -85,15 +85,15 @@ export default function ProductCard({ product }) {
           <span className="text-xs text-gray-500">({product.reviewsCount})</span>
         </div>
         <div className="mt-3 flex items-baseline gap-2">
-          <span className="text-lg font-bold text-red-600">{formatFCFA(product.price)}</span>
+          <span className="text-base sm:text-lg font-bold text-red-600">{formatFCFA(product.price)}</span>
           {product.oldPrice > product.price && (
-            <span className="text-sm text-gray-400 line-through">{formatFCFA(product.oldPrice)}</span>
+            <span className="text-xs sm:text-sm text-gray-400 line-through">{formatFCFA(product.oldPrice)}</span>
           )}
         </div>
         <button
           type="button"
           onClick={handleAdd}
-          className="mt-4 w-full rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
+          className="mt-4 w-full rounded-lg bg-blue-600 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-bold text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
         >
           {added ? 'Ajouté au panier' : 'Ajouter'}
         </button>

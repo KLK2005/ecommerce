@@ -30,10 +30,10 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3">
-        <Link to="/" className="flex items-center gap-2.5 whitespace-nowrap rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-800" aria-label="ShopCam, accueil">
-          <img src="/logo-shopcam.svg" alt="" className="h-10 w-10" />
-          <span className="text-2xl font-black tracking-tight text-blue-800">Shop<span className="text-amber-700">Cam</span></span>
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-3 py-2 sm:gap-3 sm:px-4 sm:py-3">
+        <Link to="/" className="flex items-center gap-2 sm:gap-2.5 whitespace-nowrap rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-800" aria-label="ShopCam, accueil">
+          <img src="/logo-shopcam.svg" alt="" className="h-8 w-8 sm:h-10 sm:w-10" />
+          <span className="text-lg font-black tracking-tight text-blue-800 sm:text-2xl">Shop<span className="text-amber-700">Cam</span></span>
         </Link>
 
         <nav aria-label="Navigation principale" className="order-3 flex w-full flex-wrap items-center justify-start gap-x-4 gap-y-1 border-t border-gray-100 pt-2 text-sm md:order-none md:w-auto md:flex-1 md:justify-center md:gap-5 md:border-0 md:pt-0 md:text-base">
@@ -44,7 +44,7 @@ export default function Header() {
           <Link to="/shop?universe=mode" className={navLink}>Mode</Link>
         </nav>
 
-        <div className="flex items-center gap-1 sm:gap-2" role="group" aria-label="Raccourcis du compte et du panier">
+        <div className="flex items-center gap-0.5 sm:gap-1 md:gap-2" role="group" aria-label="Raccourcis du compte et du panier">
           <Link
             to="/favoris"
             aria-label={wishlistCount ? `Favoris, ${wishlistCount} article${wishlistCount > 1 ? 's' : ''}` : 'Favoris'}

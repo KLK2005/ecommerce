@@ -15,8 +15,8 @@ const footerLinks = [
 export default function Footer() {
   return (
     <footer className="mt-3 border-t border-slate-200 bg-white text-slate-700">
-      <div className="mx-auto max-w-7xl px-4 py-3 sm:py-4">
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto max-w-7xl px-3 py-2 sm:px-4 sm:py-3 md:py-4">
+        <div className="flex flex-col gap-1.5 sm:gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div className="shrink-0">
             <Link to="/" className="rounded-sm text-lg font-black tracking-tight text-blue-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800">
               Shop<span className="text-amber-700">Cam</span>
