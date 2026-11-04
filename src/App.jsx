@@ -1,4 +1,11 @@
-import ProductDetail from "./pages/ProductDetail";
+import ProductDetail from './pages/ProductDetail';
+import Shop from './pages/Shop';
+import Cart from './pages/Cart';
+import Wishlist from './pages/Wishlist';
+import Checkout from './pages/Checkout';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Account from './pages/Account';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import { WishlistProvider } from './context/WishlistContext';
@@ -18,16 +25,15 @@ function App() {
               
               <main className="flex-1 max-w-7xl w-full mx-auto px-4">
                 <Routes>
-                  <Route path="/produit/:id" element={<ProductDetail />} />
                   <Route path="/" element={<Home />} />
-                  <Route path="/shop" element={<div className="py-4">Shop</div>} />
-                  <Route path="/produit/:id" element={<div className="py-4">ProductDetail</div>} />
-                  <Route path="/panier" element={<div className="py-4">Cart</div>} />
-                  <Route path="/favoris" element={<div className="py-4">Wishlist</div>} />
-                  <Route path="/checkout" element={<div className="py-4">Checkout</div>} />
-                  <Route path="/connexion" element={<div className="py-4">Login</div>} />
-                  <Route path="/inscription" element={<div className="py-4">Register</div>} />
-                  <Route path="/compte" element={<div className="py-4">Account</div>} />
+                  <Route path="/shop" element={<Shop />} />
+                  <Route path="/produit/:id" element={<ProductDetail />} />
+                  <Route path="/panier" element={<Cart />} />
+                  <Route path="/favoris" element={<Wishlist />} />
+                  <Route path="/checkout" element={<Checkout />} />
+                  <Route path="/connexion" element={<Login />} />
+                  <Route path="/inscription" element={<Register />} />
+                  <Route path="/compte" element={<Account />} />
                   <Route path="/about" element={<div className="py-4">About</div>} />
                   <Route path="/contact" element={<div className="py-4">Contact</div>} />
                   <Route path="*" element={<div className="py-4">404</div>} />
