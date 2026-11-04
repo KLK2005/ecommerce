@@ -70,25 +70,28 @@ export default function Shop() {
   };
 
   return (
-    <section className="py-6 sm:py-8 md:py-10">
-      <div className="mb-6 sm:mb-8">
-        <p className="mb-2 text-xs sm:text-sm font-semibold uppercase tracking-wide text-blue-600">ShopCam</p>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">La boutique</h1>
-        <p className="mt-2 text-sm sm:text-base text-gray-600">Trouvez vos produits préférés au meilleur prix.</p>
-      </div>
+    <section className="py-6 sm:py-8 md:py-10 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-6 sm:mb-8">
+          <p className="mb-2 text-xs sm:text-sm font-semibold uppercase tracking-wide text-blue-600">ShopCam</p>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">La boutique</h1>
+          <p className="mt-2 text-sm sm:text-base text-gray-600">Trouvez vos produits préférés au meilleur prix.</p>
+        </div>
 
       <div className="mb-5 sm:mb-6">
         <SearchBar value={query} onChange={setQuery} />
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-[240px_1fr]">
-        <Filters
-          filters={filters}
-          colors={colors}
-          priceLimit={priceLimit}
-          onChange={setFilters}
-          onReset={resetAll}
-        />
+      <div className="grid gap-4 sm:gap-6 lg:gap-8 grid-cols-1 lg:grid-cols-[240px_1fr]">
+        <div className="hidden lg:block">
+          <Filters
+            filters={filters}
+            colors={colors}
+            priceLimit={priceLimit}
+            onChange={setFilters}
+            onReset={resetAll}
+          />
+        </div>
 
         <div>
           <div className="mb-5 flex flex-col gap-2 sm:gap-3 border-b border-gray-200 pb-3 sm:pb-4 sm:flex-row sm:items-center sm:justify-between">
@@ -126,6 +129,7 @@ export default function Shop() {
             </div>
           )}
         </div>
+      </div>
       </div>
     </section>
   );

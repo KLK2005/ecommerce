@@ -15,7 +15,7 @@ function Icon({ name }) {
   };
 
   return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 sm:h-5 sm:w-5">
       <path d={paths[name]} />
     </svg>
   );
@@ -25,18 +25,18 @@ export default function Header() {
   const { cartCount } = useCart();
   const { wishlistCount } = useWishlist();
   const { isAuthenticated } = useAuth();
-  const iconLink = 'relative inline-flex h-11 w-11 items-center justify-center rounded-xl text-slate-800 transition hover:bg-blue-50 hover:text-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800';
-  const navLink = 'inline-flex min-h-11 items-center font-medium text-slate-800 transition hover:text-blue-800 focus-visible:rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800';
+  const iconLink = 'relative inline-flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-lg sm:rounded-xl text-slate-800 transition hover:bg-blue-50 hover:text-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800';
+  const navLink = 'inline-flex min-h-9 sm:min-h-11 items-center text-xs sm:text-sm md:text-base font-medium text-slate-800 transition hover:text-blue-800 focus-visible:rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800';
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-3 py-2 sm:gap-3 sm:px-4 sm:py-3">
-        <Link to="/" className="flex items-center gap-2 sm:gap-2.5 whitespace-nowrap rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-800" aria-label="ShopCam, accueil">
-          <img src="/logo-shopcam.svg" alt="" className="h-8 w-8 sm:h-10 sm:w-10" />
-          <span className="text-lg font-black tracking-tight text-blue-800 sm:text-2xl">Shop<span className="text-amber-700">Cam</span></span>
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-3 py-2 sm:gap-3 sm:px-4 sm:py-3 lg:px-6">
+        <Link to="/" className="flex items-center gap-1.5 sm:gap-2 sm:gap-2.5 whitespace-nowrap rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-800" aria-label="ShopCam, accueil">
+          <img src="/logo-shopcam.svg" alt="" className="h-7 w-7 sm:h-8 sm:w-8 lg:h-10 lg:w-10" />
+          <span className="text-sm font-black tracking-tight text-blue-800 sm:text-lg lg:text-2xl">Shop<span className="text-amber-700">Cam</span></span>
         </Link>
 
-        <nav aria-label="Navigation principale" className="order-3 flex w-full flex-wrap items-center justify-start gap-x-4 gap-y-1 border-t border-gray-100 pt-2 text-sm md:order-none md:w-auto md:flex-1 md:justify-center md:gap-5 md:border-0 md:pt-0 md:text-base">
+        <nav aria-label="Navigation principale" className="order-3 flex w-full flex-wrap items-center justify-start gap-x-2 gap-y-1 border-t border-gray-100 pt-2 text-xs sm:text-sm md:order-none md:w-auto md:flex-1 md:justify-center md:gap-3 md:border-0 md:pt-0 md:text-base lg:gap-5">
           <Link to="/shop" className={navLink}>Boutique</Link>
           <Link to="/shop?universe=tech" className={navLink}>Tech</Link>
           <Link to="/shop?universe=maison" className={navLink}>Maison</Link>
@@ -44,7 +44,7 @@ export default function Header() {
           <Link to="/shop?universe=mode" className={navLink}>Mode</Link>
         </nav>
 
-        <div className="flex items-center gap-0.5 sm:gap-1 md:gap-2" role="group" aria-label="Raccourcis du compte et du panier">
+        <div className="flex items-center gap-0.5 sm:gap-1 md:gap-1.5 lg:gap-2" role="group" aria-label="Raccourcis du compte et du panier">
           <Link
             to="/favoris"
             aria-label={wishlistCount ? `Favoris, ${wishlistCount} article${wishlistCount > 1 ? 's' : ''}` : 'Favoris'}

@@ -19,23 +19,23 @@ export default function Filters({
   const update = (key, value) => onChange({ ...filters, [key]: value });
 
   return (
-    <aside className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm" aria-label="Filtres du catalogue">
-      <div className="mb-5 flex items-center justify-between">
-        <h2 className="text-lg font-bold text-gray-900">Filtrer</h2>
+    <aside className="rounded-xl border border-gray-200 bg-white p-4 sm:p-5 shadow-sm" aria-label="Filtres du catalogue">
+      <div className="mb-4 sm:mb-5 flex items-center justify-between">
+        <h2 className="text-base sm:text-lg font-bold text-gray-900">Filtrer</h2>
         <button
           type="button"
           onClick={onReset}
-          className="text-sm font-semibold text-blue-600 transition hover:text-blue-800"
+          className="text-xs sm:text-sm font-semibold text-blue-600 transition hover:text-blue-800"
         >
           Réinitialiser
         </button>
       </div>
 
-      <fieldset className="mb-6">
-        <legend className="mb-3 text-sm font-bold text-gray-800">Univers</legend>
+      <fieldset className="mb-4 sm:mb-6">
+        <legend className="mb-2 sm:mb-3 text-xs sm:text-sm font-bold text-gray-800">Univers</legend>
         <div className="space-y-2">
           {UNIVERSES.map((universe) => (
-            <label key={universe.value} className="flex cursor-pointer items-center gap-2 text-sm text-gray-600">
+            <label key={universe.value} className="flex cursor-pointer items-center gap-2 text-xs sm:text-sm text-gray-600">
               <input
                 type="radio"
                 name="universe"
@@ -50,8 +50,8 @@ export default function Filters({
         </div>
       </fieldset>
 
-      <div className="mb-6">
-        <label htmlFor="max-price" className="mb-2 block text-sm font-bold text-gray-800">
+      <div className="mb-4 sm:mb-6">
+        <label htmlFor="max-price" className="mb-2 block text-xs sm:text-sm font-bold text-gray-800">
           Prix maximum
         </label>
         <input
@@ -70,15 +70,15 @@ export default function Filters({
         </div>
       </div>
 
-      <div className="mb-6">
-        <label htmlFor="catalogue-color" className="mb-2 block text-sm font-bold text-gray-800">
+      <div className="mb-4 sm:mb-6">
+        <label htmlFor="catalogue-color" className="mb-2 block text-xs sm:text-sm font-bold text-gray-800">
           Couleur
         </label>
         <select
           id="catalogue-color"
           value={filters.color}
           onChange={(event) => update('color', event.target.value)}
-          className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
+          className="w-full rounded-lg border border-gray-200 bg-white px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm text-gray-700 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
         >
           <option value="">Toutes les couleurs</option>
           {colors.map((color) => (
@@ -88,14 +88,14 @@ export default function Filters({
       </div>
 
       <div>
-        <label htmlFor="catalogue-rating" className="mb-2 block text-sm font-bold text-gray-800">
+        <label htmlFor="catalogue-rating" className="mb-2 block text-xs sm:text-sm font-bold text-gray-800">
           Note minimale
         </label>
         <select
           id="catalogue-rating"
           value={filters.minRating}
           onChange={(event) => update('minRating', Number(event.target.value))}
-          className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
+          className="w-full rounded-lg border border-gray-200 bg-white px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm text-gray-700 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
         >
           <option value="0">Toutes les notes</option>
           <option value="4">4 étoiles et plus</option>
